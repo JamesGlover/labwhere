@@ -34,5 +34,7 @@ class DependentLoader
         end
       end
     end
+  rescue ActiveRecord::NoDatabaseError => _e
+    Rails.logger.warn('No database. Skipping seeding.')
   end
 end
